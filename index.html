@@ -1,0 +1,507 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Auto Elite Detailing</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #111;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #080808;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d4af37;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 60px 7%;
+            background:
+                linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+                url("https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: #d4af37;
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background-color: white;
+        }
+
+        .button.secondary {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .button.secondary:hover {
+            background-color: white;
+            color: #111;
+        }
+
+        /* Services */
+        .services {
+            padding: 80px 7%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            color: #d4af37;
+        }
+
+        .section-description {
+            color: #aaa;
+            margin-bottom: 45px;
+        }
+
+        .service-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: #1b1b1b;
+            padding: 35px 25px;
+            border-radius: 8px;
+            border: 1px solid #292929;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: #d4af37;
+        }
+
+        .service-card h3 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .service-card p {
+            color: #bbb;
+        }
+
+        .price {
+            display: block;
+            margin-top: 20px;
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* About */
+        .about {
+            background-color: #181818;
+            padding: 80px 7%;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .about-text h2 span {
+            color: #d4af37;
+        }
+
+        .about-text p {
+            color: #bbb;
+            margin-bottom: 15px;
+        }
+
+        .about-box {
+            flex: 1;
+            background-color: #222;
+            padding: 40px;
+            border-left: 4px solid #d4af37;
+            border-radius: 5px;
+        }
+
+        .about-box h3 {
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+            padding: 80px 7%;
+        }
+
+        .contact p {
+            color: #aaa;
+            margin: 15px 0 30px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #080808;
+            text-align: center;
+            padding: 25px;
+            color: #888;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .service-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 75vh;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .button {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            AUTO <span>ELITE</span>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Your Car Deserves
+                <span>Elite Treatment.</span>
+            </h1>
+
+            <p>
+                Professional automotive detailing designed to restore,
+                protect and enhance the appearance of your vehicle.
+            </p>
+
+            <a href="services.html" class="button">
+                View Our Services
+            </a>
+
+            <a href="contact.html" class="button secondary">
+                Book a Detail
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Services Section -->
+    <section class="services">
+
+        <h2 class="section-title">
+            Our <span>Services</span>
+        </h2>
+
+        <p class="section-description">
+            Premium detailing services for cars that deserve the best.
+        </p>
+
+        <div class="service-container">
+
+            <div class="service-card">
+                <h3>Full Exterior Detail</h3>
+
+                <p>
+                    Complete exterior wash, wheel cleaning,
+                    paint decontamination and professional finish.
+                </p>
+
+                <span class="price">From £80</span>
+            </div>
+
+
+            <div class="service-card">
+                <h3>Interior Detail</h3>
+
+                <p>
+                    Deep cleaning of seats, carpets, dashboard
+                    and interior surfaces.
+                </p>
+
+                <span class="price">From £70</span>
+            </div>
+
+
+            <div class="service-card">
+                <h3>Premium Full Detail</h3>
+
+                <p>
+                    Our complete interior and exterior package
+                    for the ultimate vehicle transformation.
+                </p>
+
+                <span class="price">From £150</span>
+            </div>
+
+
+            <div class="service-card">
+                <h3>Paint Correction</h3>
+
+                <p>
+                    Professional polishing designed to reduce
+                    swirl marks, scratches and paint imperfections.
+                </p>
+
+                <span class="price">From £200</span>
+            </div>
+
+
+            <div class="service-card">
+                <h3>Ceramic Coating</h3>
+
+                <p>
+                    Long-lasting paint protection providing
+                    enhanced gloss and resistance to contaminants.
+                </p>
+
+                <span class="price">From £350</span>
+            </div>
+
+
+            <div class="service-card">
+                <h3>Maintenance Detail</h3>
+
+                <p>
+                    Regular maintenance cleaning to keep your
+                    vehicle looking fresh throughout the year.
+                </p>
+
+                <span class="price">From £50</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about">
+
+        <div class="about-text">
+
+            <h2>
+                Why Choose <span>Auto Elite?</span>
+            </h2>
+
+            <p>
+                At Auto Elite Detailing, we are passionate about
+                keeping vehicles looking their absolute best.
+            </p>
+
+            <p>
+                Our detailing services use professional techniques
+                and high-quality products to deliver outstanding
+                results for every vehicle.
+            </p>
+
+            <p>
+                Whether you need a simple maintenance detail or
+                a complete vehicle transformation, our team is
+                here to help.
+            </p>
+
+        </div>
+
+
+        <div class="about-box">
+
+            <h3>Professional Vehicle Care</h3>
+
+            <p>
+                ✓ High-quality detailing products
+            </p>
+
+            <p>
+                ✓ Professional attention to detail
+            </p>
+
+            <p>
+                ✓ Competitive prices
+            </p>
+
+            <p>
+                ✓ Customer-focused service
+            </p>
+
+            <p>
+                ✓ Interior and exterior detailing
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact Section -->
+    <section class="contact">
+
+        <h2 class="section-title">
+            Ready to Make Your Car <span>Shine?</span>
+        </h2>
+
+        <p>
+            Get in touch with Auto Elite Detailing today
+            to discuss your vehicle's requirements.
+        </p>
+
+        <a href="contact.html" class="button">
+            Contact Us
+        </a>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            &copy; 2026 Auto Elite Detailing.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```
