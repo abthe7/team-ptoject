@@ -1,2 +1,2 @@
-# team-ptoject
+# team-project
 Elite Auto detailing
