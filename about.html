@@ -1,0 +1,476 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us - Auto Elite Detailing</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #111;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #080808;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #d4af37;
+        }
+
+        /* Hero */
+        .about-hero {
+            padding: 100px 7%;
+            text-align: center;
+            background:
+                linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+                url("https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .about-hero h1 {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .about-hero h1 span {
+            color: #d4af37;
+        }
+
+        .about-hero p {
+            color: #ddd;
+            font-size: 19px;
+        }
+
+        /* About Content */
+        .about-section {
+            padding: 80px 7%;
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .about-content h2 span {
+            color: #d4af37;
+        }
+
+        .about-content p {
+            color: #bbb;
+            margin-bottom: 18px;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+        }
+
+        /* Values */
+        .values {
+            padding: 80px 7%;
+            background-color: #181818;
+            text-align: center;
+        }
+
+        .values h2 {
+            font-size: 38px;
+            margin-bottom: 45px;
+        }
+
+        .values h2 span {
+            color: #d4af37;
+        }
+
+        .value-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .value-card {
+            background-color: #222;
+            padding: 35px 25px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            border-color: #d4af37;
+        }
+
+        .value-card h3 {
+            color: #d4af37;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: #bbb;
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            padding: 80px 7%;
+            text-align: center;
+        }
+
+        .why-us h2 {
+            font-size: 38px;
+            margin-bottom: 40px;
+        }
+
+        .why-us h2 span {
+            color: #d4af37;
+        }
+
+        .reasons {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .reason {
+            background-color: #1b1b1b;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-left: 4px solid #d4af37;
+            border-radius: 5px;
+        }
+
+        .reason h3 {
+            margin-bottom: 5px;
+        }
+
+        .reason p {
+            color: #aaa;
+        }
+
+        /* Button */
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 28px;
+            background-color: #d4af37;
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background-color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #080808;
+            text-align: center;
+            padding: 25px;
+            color: #888;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+
+            .about-section {
+                flex-direction: column;
+            }
+
+            .value-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .about-hero h1 {
+                font-size: 42px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+
+        <div class="logo">
+            AUTO <span>ELITE</span>
+        </div>
+
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="services.html">Services</a>
+            </li>
+
+            <li>
+                <a href="about.html" class="active">About Us</a>
+            </li>
+
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+
+            <li>
+                <a href="login.html">Login</a>
+            </li>
+        </ul>
+
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="about-hero">
+
+        <h1>
+            About <span>Auto Elite</span>
+        </h1>
+
+        <p>
+            Professional detailing. Exceptional results.
+        </p>
+
+    </section>
+
+
+    <!-- About Us -->
+    <section class="about-section">
+
+        <div class="about-content">
+
+            <h2>
+                Who <span>We Are</span>
+            </h2>
+
+            <p>
+                Auto Elite Detailing is a professional vehicle
+                detailing business dedicated to helping customers
+                keep their vehicles looking their absolute best.
+            </p>
+
+            <p>
+                We provide a range of professional interior and
+                exterior detailing services designed to clean,
+                restore and protect vehicles.
+            </p>
+
+            <p>
+                From regular maintenance details to premium paint
+                correction and ceramic coating, we aim to provide
+                high-quality results and excellent customer service
+                with every vehicle we work on.
+            </p>
+
+            <a href="services.html" class="button">
+                View Our Services
+            </a>
+
+        </div>
+
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1000&q=80"
+                alt="Professionally detailed car"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- Values -->
+    <section class="values">
+
+        <h2>
+            Our <span>Values</span>
+        </h2>
+
+        <div class="value-container">
+
+            <div class="value-card">
+
+                <h3>Quality</h3>
+
+                <p>
+                    We focus on delivering high-quality detailing
+                    results and paying attention to every detail.
+                </p>
+
+            </div>
+
+
+            <div class="value-card">
+
+                <h3>Professionalism</h3>
+
+                <p>
+                    We aim to provide a professional, reliable and
+                    friendly experience for every customer.
+                </p>
+
+            </div>
+
+
+            <div class="value-card">
+
+                <h3>Customer Satisfaction</h3>
+
+                <p>
+                    Our customers are at the heart of everything
+                    we do. We strive to exceed expectations.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
+
+        <h2>
+            Why Choose <span>Auto Elite?</span>
+        </h2>
+
+        <div class="reasons">
+
+            <div class="reason">
+
+                <h3>Professional Service</h3>
+
+                <p>
+                    We use professional detailing techniques to
+                    achieve excellent results.
+                </p>
+
+            </div>
+
+
+            <div class="reason">
+
+                <h3>Quality Products</h3>
+
+                <p>
+                    We use quality products designed to clean,
+                    protect and enhance your vehicle.
+                </p>
+
+            </div>
+
+
+            <div class="reason">
+
+                <h3>Attention to Detail</h3>
+
+                <p>
+                    We take the time to carefully work on every
+                    part of your vehicle.
+                </p>
+
+            </div>
+
+
+            <div class="reason">
+
+                <h3>Competitive Pricing</h3>
+
+                <p>
+                    We offer a range of services at competitive
+                    prices to suit different requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            &copy; 2026 Auto Elite Detailing.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```
