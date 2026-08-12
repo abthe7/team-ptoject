@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Auto Elite Detailing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background-color: #111;
+            color: white;
+            line-height: 1.6;
+        }
+        /* Navigation */
+        nav {
+            background-color: #080808;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            border-bottom: 1px solid #333;
+        }
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .logo span {
+            color: #d4af37;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #d4af37;
+        }
+        /* Hero */
+        .contact-hero {
+            padding: 100px 7%;
+            text-align: center;
+            background:
+                linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+                url("https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+        }
+        .contact-hero h1 {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+        .contact-hero h1 span {
+            color: #d4af37;
+        }
+        .contact-hero p {
+            color: #ddd;
+            font-size: 19px;
+        }
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 7%;
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+        .contact-info {
+            flex: 1;
+        }
+        .contact-form {
+            flex: 1;
+        }
+        .contact-info h2,
+        .contact-form h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+        .contact-info h2 span,
+        .contact-form h2 span {
+            color: #d4af37;
+        }
+        .contact-info > p {
+            color: #bbb;
+            margin-bottom: 30px;
+        }
+        /* Contact Details */
+        .contact-details {
+            margin-top: 20px;
+        }
+        .contact-detail {
+            background-color: #1b1b1b;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-left: 4px solid #d4af37;
+            border-radius: 5px;
+        }
+        .contact-detail h3 {
+            color: #d4af37;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        .contact-detail p {
+            color: #aaa;
+        }
+        /* Contact Form */
+        .form-box {
+            background-color: #181818;
+            padding: 35px;
+            border: 1px solid #333;
+            border-radius: 8px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+            background-color: #111;
+            color: white;
+            border: 1px solid #333;
+            border-radius: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #d4af37;
+        }
+        .form-group textarea {
+            height: 140px;
+            resize: vertical;
+        }
+        .form-group select {
+            cursor: pointer;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 5px;
+            padding: 14px 28px;
+            background-color: #d4af37;
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: white;
+        }
+        /* Opening Hours */
+        .opening-hours {
+            padding: 80px 7%;
+            background-color: #181818;
+            text-align: center;
+        }
+        .opening-hours h2 {
+            font-size: 38px;
+            margin-bottom: 40px;
+        }
+        .opening-hours h2 span {
+            color: #d4af37;
+        }
+        .hours-container {
+            max-width: 800px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .hours-card {
+            background-color: #222;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+        .hours-card h3 {
+            color: #d4af37;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        .hours-card p {
+            color: #bbb;
+        }
+        /* Footer */
+        footer {
+            background-color: #080808;
+            text-align: center;
+            padding: 25px;
+            color: #888;
+            border-top: 1px solid #333;
+        }
+        /* Responsive */
+        @media (max-width: 850px) {
+            .contact-section {
+                flex-direction: column;
+            }
+            .hours-container {
+                grid-template-columns: 1fr;
+            }
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .contact-hero h1 {
+                font-size: 42px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            AUTO <span>ELITE</span>
+        </div>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="services.html">Services</a>
+            </li>
+            <li>
+                <a href="about.html">About Us</a>
+            </li>
+            <li>
+                <a href="contact.html" class="active">Contact</a>
+            </li>
+            <li>
+                <a href="login.html">Login</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Hero -->
+    <section class="contact-hero">
+        <h1>
+            Contact <span>Auto Elite</span>
+        </h1>
+        <p>
+            Get in touch with us. We're here to help.
+        </p>
+    </section>
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <h2>
+                Get In <span>Touch</span>
+            </h2>
+            <p>
+                Have a question about our detailing services or
+                looking to book your vehicle in? Contact the Auto
+                Elite team and we'll be happy to help.
+            </p>
+            <div class="contact-details">
+                <div class="contact-detail">
+                    <h3>Phone</h3>
+                    <p>
+                        0121 123 4567
+                    </p>
+                </div>
+                <div class="contact-detail">
+                    <h3>Email</h3>
+                    <p>
+                        info@autoelite.co.uk
+                    </p>
+                </div>
+                <div class="contact-detail">
+                    <h3>Location</h3>
+                    <p>
+                        Birmingham, United Kingdom
+                    </p>
+                </div>
+                <div class="contact-detail">
+                    <h3>Opening Hours</h3>
+                    <p>
+                        Monday - Saturday: 8:00 AM - 6:00 PM
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h2>
+                Send Us A <span>Message</span>
+            </h2>
+            <div class="form-box">
+                <form>
+                    <div class="form-group">
+                        <label for="name">
+                            Full Name
+                        </label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="email">
+                            Email Address
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">
+                            Phone Number
+                        </label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Enter your phone number"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="service">
+                            Service
+                        </label>
+                        <select id="service" name="service">
+                            <option value="">
+                                Select a service
+                            </option>
+                            <option value="exterior">
+                                Exterior Detailing
+                            </option>
+                            <option value="interior">
+                                Interior Detailing
+                            </option>
+                            <option value="full-detail">
+                                Full Detail
+                            </option>
+                            <option value="paint-correction">
+                                Paint Correction
+                            </option>
+                            <option value="ceramic-coating">
+                                Ceramic Coating
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">
+                            Message
+                        </label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Tell us how we can help..."
+                            required
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="button">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Opening Hours -->
+    <section class="opening-hours">
+        <h2>
+            Our <span>Opening Hours</span>
+        </h2>
+        <div class="hours-container">
+            <div class="hours-card">
+                <h3>Monday - Friday</h3>
+                <p>
+                    8:00 AM - 6:00 PM
+                </p>
+            </div>
+            <div class="hours-card">
+                <h3>Saturday</h3>
+                <p>
+                    8:00 AM - 6:00 PM
+                </p>
+            </div>
+            <div class="hours-card">
+                <h3>Sunday</h3>
+                <p>
+                    Closed
+                </p>
+            </div>
+            <div class="hours-card">
+                <h3>Appointments</h3>
+                <p>
+                    Available by prior arrangement
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <p>
+            &copy; 2026 Auto Elite Detailing.
+            All Rights Reserved.
+        </p>
+    </footer>
+</body>
+</html>
