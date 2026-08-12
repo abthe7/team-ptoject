@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Auto Elite Detailing</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#111;
+            color:white;
+        }
+
+        /* Navigation */
+        nav{
+            background:#080808;
+            padding:20px 7%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            border-bottom:1px solid #333;
+        }
+
+        .logo{
+            font-size:25px;
+            font-weight:bold;
+            letter-spacing:2px;
+        }
+
+        .logo span{
+            color:#d4af37;
+        }
+
+        nav ul{
+            list-style:none;
+            display:flex;
+            gap:30px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            transition:0.3s;
+        }
+
+        nav a:hover,
+        nav a.active{
+            color:#d4af37;
+        }
+
+        /* Hero */
+        .hero{
+            text-align:center;
+            padding:80px 7%;
+            background:
+            linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+            url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80");
+            background-size:cover;
+            background-position:center;
+        }
+
+        .hero h1{
+            font-size:50px;
+            margin-bottom:15px;
+        }
+
+        .hero span{
+            color:#d4af37;
+        }
+
+        .hero p{
+            color:#ddd;
+            font-size:18px;
+        }
+
+        /* Services */
+        .services{
+            padding:80px 7%;
+        }
+
+        .service-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:25px;
+        }
+
+        .card{
+            background:#1b1b1b;
+            border:1px solid #333;
+            border-radius:10px;
+            overflow:hidden;
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-8px);
+            border-color:#d4af37;
+        }
+
+        .card img{
+            width:100%;
+            height:220px;
+            object-fit:cover;
+        }
+
+        .card-content{
+            padding:25px;
+        }
+
+        .card h2{
+            color:#d4af37;
+            margin-bottom:15px;
+        }
+
+        .card p{
+            color:#bbb;
+            margin-bottom:15px;
+        }
+
+        .price{
+            font-size:22px;
+            font-weight:bold;
+            display:block;
+            margin-bottom:20px;
+        }
+
+        .button{
+            display:inline-block;
+            padding:12px 25px;
+            background:#d4af37;
+            color:#111;
+            text-decoration:none;
+            border-radius:5px;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .button:hover{
+            background:white;
+        }
+
+        footer{
+            background:#080808;
+            text-align:center;
+            padding:25px;
+            color:#888;
+            border-top:1px solid #333;
+        }
+
+        @media(max-width:800px){
+
+            nav{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            nav ul{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .hero h1{
+                font-size:38px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+
+        <div class="logo">
+            AUTO <span>ELITE</span>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+
+        <h1>Our <span>Services</span></h1>
+
+        <p>
+            Premium vehicle detailing services designed to
+            clean, restore and protect your car.
+        </p>
+
+    </section>
+
+    <!-- Service Cards -->
+    <section class="services">
+
+        <div class="service-grid">
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-content">
+                    <h2>Exterior Detail</h2>
+
+                    <p>
+                        Full exterior wash, wheel cleaning,
+                        waxing and paint protection.
+                    </p>
+
+                    <span class="price">From £80</span>
+
+                    <a href="contact.html" class="button">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-content">
+                    <h2>Interior Detail</h2>
+
+                    <p>
+                        Deep cleaning of seats, carpets,
+                        dashboard and interior surfaces.
+                    </p>
+
+                    <span class="price">From £70</span>
+
+                    <a href="contact.html" class="button">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-content">
+                    <h2>Premium Full Detail</h2>
+
+                    <p>
+                        Complete interior and exterior package
+                        for the ultimate finish.
+                    </p>
+
+                    <span class="price">From £150</span>
+
+                    <a href="contact.html" class="button">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-content">
+                    <h2>Paint Correction</h2>
+
+                    <p>
+                        Remove swirl marks and improve paint
+                        clarity and gloss.
+                    </p>
+
+                    <span class="price">From £200</span>
+
+                    <a href="contact.html" class="button">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-content">
+                    <h2>Ceramic Coating</h2>
+
+                    <p>
+                        Long-lasting protection for paintwork
+                        and enhanced shine.
+                    </p>
+
+                    <span class="price">From £350</span>
+
+                    <a href="contact.html" class="button">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-content">
+                    <h2>Maintenance Detail</h2>
+
+                    <p>
+                        Keep your vehicle looking fresh with
+                        regular cleaning packages.
+                    </p>
+
+                    <span class="price">From £50</span>
+
+                    <a href="contact.html" class="button">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            &copy; 2026 Auto Elite Detailing.
+            All Rights Reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
+```
