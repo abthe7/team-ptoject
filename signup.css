@@ -92,6 +92,15 @@ input:focus {
     outline-offset: 1px;
 }
 
+.password-option {
+    display: flex;
+    align-items: center;
+}
+
+.password-option input {
+    width: auto;
+}
+
 button {
     padding: 0.8rem 1.25rem;
     border: 0;
