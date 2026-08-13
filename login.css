@@ -171,3 +171,28 @@ footer p {
 footer a {
     color: #d4af37;
 }
+
+@media (max-width: 850px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .login-panel {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+}
