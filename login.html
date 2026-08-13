@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - Auto Elite Detailing</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">AUTO <span>ELITE</span></a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-panel">
+            <h1>Log in to your <span>account</span></h1>
+            <p>
+                Enter your username or email address and password to access
+                your account.
+            </p>
+            <form id="login-form" method="post">
+                <div>
+                    <label for="login-identifier">Username or email address</label>
+                    <input
+                        type="text"
+                        id="login-identifier"
+                        name="identifier"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+                <div>
+                    <label for="login-password">Password</label>
+                    <input
+                        type="password"
+                        id="login-password"
+                        name="password"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+                <div class="password-option">
+                    <input type="checkbox" id="show-password">
+                    <label for="show-password">Show password</label>
+                </div>
+                <button type="submit">Log In</button>
+            </form>
+            <p>
+                Need an account? <a href="signup.html">Create an Auto Elite account</a>.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Auto Elite Detailing. All Rights Reserved.</p>
+        <a href="index.html">Return to the Auto Elite home page</a>
+    </footer>
+</body>
+</html>
