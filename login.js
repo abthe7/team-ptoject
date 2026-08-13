@@ -1,4 +1,6 @@
 const identifierInput = document.getElementById("login-identifier");
+const passwordInput = document.getElementById("login-password");
+const showPasswordInput = document.getElementById("show-password");
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function validateIdentifier() {
@@ -16,3 +18,7 @@ function validateIdentifier() {
 
 identifierInput.addEventListener("input", validateIdentifier);
 identifierInput.addEventListener("blur", validateIdentifier);
+
+showPasswordInput.addEventListener("change", function () {
+    passwordInput.type = showPasswordInput.checked ? "text" : "password";
+});

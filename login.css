@@ -116,6 +116,16 @@ input:focus {
     border-color: #d4af37;
 }
 
+.password-option {
+    display: flex;
+    align-items: center;
+}
+
+.password-option input {
+    width: auto;
+    accent-color: #d4af37;
+}
+
 button {
     width: 100%;
     padding: 14px 28px;
