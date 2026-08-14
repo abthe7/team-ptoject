@@ -1,0 +1,193 @@
+-- ============================================================
+-- AUTO ELITE DETAILING DATABASE
+-- ============================================================
+
+CREATE DATABASE IF NOT EXISTS auto_elite;
+
+USE auto_elite;
+
+
+-- ============================================================
+-- USERS TABLE
+-- ============================================================
+
+CREATE TABLE users (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+
+    username VARCHAR(50) NOT NULL,
+
+    email VARCHAR(255) NOT NULL UNIQUE,
+
+    password VARCHAR(255) NOT NULL,
+
+    is_admin BOOLEAN NOT NULL DEFAULT FALSE,
+
+    remember_token VARCHAR(100) NULL,
+
+    created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+-- ============================================================
+-- SERVICES TABLE
+-- ============================================================
+
+CREATE TABLE services (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+
+    name VARCHAR(255) NOT NULL,
+
+    description TEXT NOT NULL,
+
+    price DECIMAL(8,2) NOT NULL,
+
+    image VARCHAR(255) NULL,
+
+    stock INT NOT NULL DEFAULT 0,
+
+    created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+-- ============================================================
+-- ORDERS TABLE
+-- ============================================================
+
+CREATE TABLE orders (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+
+    user_id BIGINT UNSIGNED NOT NULL,
+
+    service_id BIGINT UNSIGNED NOT NULL,
+
+    quantity INT NOT NULL,
+
+    total_price DECIMAL(8,2) NOT NULL,
+
+    status ENUM(
+        'Pending',
+        'Accepted',
+        'Rejected',
+        'Completed'
+    ) NOT NULL DEFAULT 'Pending',
+
+    created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP,
+
+    CONSTRAINT orders_user_id_foreign
+        FOREIGN KEY (user_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE,
+
+    CONSTRAINT orders_service_id_foreign
+        FOREIGN KEY (service_id)
+        REFERENCES services(id)
+        ON DELETE CASCADE
+);
+
+
+-- ============================================================
+-- AUTO ELITE DETAILING SERVICES
+-- ============================================================
+
+INSERT INTO services
+(
+    name,
+    description,
+    price,
+    image,
+    stock
+)
+VALUES
+
+(
+    'Exterior Detail',
+    'Full exterior wash, wheel cleaning and paint protection.',
+    80.00,
+    'exterior.jpg',
+    10
+),
+
+(
+    'Interior Detail',
+    'Deep cleaning of seats, carpets, dashboard and interior surfaces.',
+    70.00,
+    'interior.jpg',
+    10
+),
+
+(
+    'Premium Full Detail',
+    'Complete interior and exterior vehicle detailing package.',
+    150.00,
+    'premium.jpg',
+    10
+),
+
+(
+    'Paint Correction',
+    'Professional paint correction to reduce swirl marks and imperfections.',
+    200.00,
+    'paint-correction.jpg',
+    5
+),
+
+(
+    'Ceramic Coating',
+    'Long-lasting paint protection with an enhanced glossy finish.',
+    350.00,
+    'ceramic.jpg',
+    5
+),
+
+(
+    'Maintenance Detail',
+    'Regular detailing service to keep your vehicle looking its best.',
+    50.00,
+    'maintenance.jpg',
+    20
+);
+
+
+-- ============================================================
+-- OPTIONAL TEST ADMIN ACCOUNT
+-- ============================================================
+-- Password below is:
+-- password
+--
+-- This is only for testing.
+-- Change/remove it before deploying the website.
+
+INSERT INTO users
+(
+    username,
+    email,
+    password,
+    is_admin
+)
+VALUES
+(
+    'admin',
+    'admin@autoelite.com',
+    '$2y$12$KIXLh3m5W9T4w2Q7u1ZqWe6V6r5G8jY6Z7H9F0B8D3K2L1M0N9P8O',
+    TRUE
+);
+
+
+-- ============================================================
+-- CHECK DATABASE
+-- ============================================================
+
+SELECT * FROM users;
+
+SELECT * FROM services;
+
+SELECT * FROM orders;
