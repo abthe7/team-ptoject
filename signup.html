@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account - Auto Elite Detailing</title>
+
+
+    <style>
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #111111;
+            color: #ffffff;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            background-color: #080808;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 20px 7%;
+
+            border-bottom: 1px solid #333333;
+        }
+
+
+        .logo {
+            font-size: 25px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        .logo span {
+            color: #d4af37;
+        }
+
+
+        nav ul {
+            display: flex;
+
+            gap: 30px;
+
+            list-style: none;
+        }
+
+
+        nav ul li a {
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #d4af37;
+        }
+
+
+        /* =========================
+           SIGN UP SECTION
+        ========================= */
+
+        .signup-section {
+
+            min-height: calc(100vh - 75px);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 50px 20px;
+        }
+
+
+        /* =========================
+           SIGN UP BOX
+        ========================= */
+
+        .signup-box {
+
+            width: 100%;
+
+            max-width: 500px;
+
+            background-color: #1b1b1b;
+
+            padding: 40px;
+
+            border-radius: 10px;
+
+            border: 1px solid #333333;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 0, 0, 0.5);
+        }
+
+
+        .signup-box h1 {
+
+            text-align: center;
+
+            font-size: 35px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .signup-box h1 span {
+
+            color: #d4af37;
+        }
+
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #999999;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-group {
+
+            margin-bottom: 20px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-weight: bold;
+        }
+
+
+        .form-group input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            background-color: #111111;
+
+            border: 1px solid #444444;
+
+            border-radius: 5px;
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: 0.3s;
+        }
+
+
+        .form-group input:focus {
+
+            border-color: #d4af37;
+        }
+
+
+        .form-group input::placeholder {
+
+            color: #777777;
+        }
+
+
+        /* =========================
+           PASSWORD REQUIREMENTS
+        ========================= */
+
+        .password-info {
+
+            color: #888888;
+
+            font-size: 13px;
+
+            margin-top: 6px;
+        }
+
+
+        /* =========================
+           SHOW PASSWORD
+        ========================= */
+
+        .password-option {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .password-option input {
+
+            width: auto;
+
+            accent-color: #d4af37;
+        }
+
+
+        .password-option label {
+
+            color: #bbbbbb;
+
+            font-weight: normal;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           CREATE ACCOUNT BUTTON
+        ========================= */
+
+        .signup-button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            background-color: #d4af37;
+
+            color: #111111;
+
+            border: none;
+
+            border-radius: 5px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .signup-button:hover {
+
+            background-color: #ffffff;
+        }
+
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        #message {
+
+            margin-top: 20px;
+
+            text-align: center;
+
+            font-weight: bold;
+
+            min-height: 24px;
+        }
+
+
+        /* =========================
+           LOGIN LINK
+        ========================= */
+
+        .login-link {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #999999;
+        }
+
+
+        .login-link a {
+
+            color: #d4af37;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        .login-link a:hover {
+
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            background-color: #080808;
+
+            text-align: center;
+
+            padding: 20px;
+
+            color: #888888;
+
+            border-top: 1px solid #333333;
+        }
+
+
+        footer p {
+
+            margin-bottom: 5px;
+        }
+
+
+        footer a {
+
+            color: #d4af37;
+
+            text-decoration: none;
+        }
+
+
+        footer a:hover {
+
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav ul {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+            }
+
+
+            .signup-box {
+
+                padding: 30px 20px;
+            }
+
+
+            .signup-box h1 {
+
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+
+            AUTO <span>ELITE</span>
+
+        </div>
+
+
+        <ul>
+
+            <li>
+
+                <a href="index.html">
+
+                    Home
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="services.html">
+
+                    Services
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="about.html">
+
+                    About Us
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="contact.html">
+
+                    Contact
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="login.html">
+
+                    Login
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a
+                    href="signup.html"
+                    class="active"
+                >
+
+                    Sign Up
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =========================
+         SIGN UP
+    ========================= -->
+
+    <section class="signup-section">
+
+
+        <div class="signup-box">
+
+
+            <h1>
+
+                Create <span>Account</span>
+
+            </h1>
+
+
+            <p class="subtitle">
+
+                Create your Auto Elite Detailing account
+
+            </p>
+
+
+
+            <!-- SIGN UP FORM -->
+
+            <form id="signup-form">
+
+
+                <!-- Username -->
+
+                <div class="form-group">
+
+                    <label for="username">
+
+                        Username
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Choose a username"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Email -->
+
+                <div class="form-group">
+
+                    <label for="email">
+
+                        Email Address
+
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Password -->
+
+                <div class="form-group">
+
+                    <label for="password">
+
+                        Password
+
+                    </label>
+
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                        autocomplete="new-password"
+                        required
+                    >
+
+
+                    <p class="password-info">
+
+                        Password must be at least 8 characters.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- Confirm Password -->
+
+                <div class="form-group">
+
+                    <label for="confirm-password">
+
+                        Confirm Password
+
+                    </label>
+
+
+                    <input
+                        type="password"
+                        id="confirm-password"
+                        name="confirm-password"
+                        placeholder="Confirm your password"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Show Password -->
+
+                <div class="password-option">
+
+                    <input
+                        type="checkbox"
+                        id="show-password"
+                    >
+
+
+                    <label for="show-password">
+
+                        Show passwords
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- Create Account Button -->
+
+                <button
+                    type="submit"
+                    class="signup-button"
+                >
+
+                    Create Account
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- Message -->
+
+            <div id="message"></div>
+
+
+
+            <!-- Login Link -->
+
+            <p class="login-link">
+
+                Already have an account?
+
+                <a href="login.html">
+
+                    Login here
+
+                </a>
+
+            </p>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+
+            &copy; 2026 Auto Elite Detailing.
+            All Rights Reserved.
+
+        </p>
+
+
+        <a href="index.html">
+
+            Return to Home
+
+        </a>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+
+        /* Get form elements */
+
+        const signupForm =
+            document.getElementById("signup-form");
+
+
+        const username =
+            document.getElementById("username");
+
+
+        const email =
+            document.getElementById("email");
+
+
+        const password =
+            document.getElementById("password");
+
+
+        const confirmPassword =
+            document.getElementById("confirm-password");
+
+
+        const showPassword =
+            document.getElementById("show-password");
+
+
+        const message =
+            document.getElementById("message");
+
+
+
+        /* =========================
+           SHOW / HIDE PASSWORDS
+        ========================= */
+
+        showPassword.addEventListener(
+            "change",
+            function () {
+
+                if (showPassword.checked) {
+
+                    password.type = "text";
+
+                    confirmPassword.type = "text";
+
+                } else {
+
+                    password.type = "password";
+
+                    confirmPassword.type = "password";
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================
+           SIGN UP
+        ========================= */
+
+        signupForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const usernameValue =
+                    username.value.trim();
+
+
+                const emailValue =
+                    email.value.trim();
+
+
+                const passwordValue =
+                    password.value;
+
+
+                const confirmPasswordValue =
+                    confirmPassword.value;
+
+
+
+                /* =========================
+                   CHECK USERNAME
+                ========================= */
+
+                if (usernameValue.length < 3) {
+
+                    message.textContent =
+                        "Username must be at least 3 characters.";
+
+                    message.style.color =
+                        "#ff5555";
+
+                    return;
+
+                }
+
+
+
+                /* =========================
+                   CHECK EMAIL
+                ========================= */
+
+                const emailPattern =
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+                if (!emailPattern.test(emailValue)) {
+
+                    message.textContent =
+                        "Please enter a valid email address.";
+
+                    message.style.color =
+                        "#ff5555";
+
+                    return;
+
+                }
+
+
+
+                /* =========================
+                   CHECK PASSWORD
+                ========================= */
+
+                if (passwordValue.length < 8) {
+
+                    message.textContent =
+                        "Password must be at least 8 characters.";
+
+                    message.style.color =
+                        "#ff5555";
+
+                    return;
+
+                }
+
+
+
+                /* =========================
+                   CHECK PASSWORDS MATCH
+                ========================= */
+
+                if (
+                    passwordValue !==
+                    confirmPasswordValue
+                ) {
+
+                    message.textContent =
+                        "Passwords do not match.";
+
+                    message.style.color =
+                        "#ff5555";
+
+                    return;
+
+                }
+
+
+
+                /* =========================
+                   ACCOUNT CREATED
+                ========================= */
+
+                message.textContent =
+                    "Account created successfully! Redirecting to login...";
+
+                message.style.color =
+                    "#d4af37";
+
+
+
+                /* =========================
+                   REDIRECT TO LOGIN
+                ========================= */
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            "login.html";
+
+                    },
+                    1500
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
