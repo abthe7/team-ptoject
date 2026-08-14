@@ -1,0 +1,289 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('username');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->boolean('is_admin')->default(false);
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('users');
+    }
+};
+php artisan make:model Service -m
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('services', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->text('description');
+            $table->decimal('price', 8, 2);
+            $table->string('image')->nullable();
+            $table->integer('stock')->default(0);
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('services');
+    }
+};
+php artisan make:model Order -m
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+
+            $table->foreignId('user_id')
+                  ->constrained()
+                  ->onDelete('cascade');
+
+            $table->foreignId('service_id')
+                  ->constrained()
+                  ->onDelete('cascade');
+
+            $table->integer('quantity');
+
+            $table->decimal('total_price', 8, 2);
+
+            $table->enum('status', [
+                'Pending',
+                'Accepted',
+                'Rejected',
+                'Completed'
+            ])->default('Pending');
+
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('orders');
+    }
+};
+app/Models/User.php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class User extends Authenticatable
+{
+    use HasFactory, Notifiable;
+
+    protected $fillable = [
+        'username',
+        'email',
+        'password',
+        'is_admin',
+    ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+            'is_admin' => 'boolean',
+        ];
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+}
+app/Models/User.php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class User extends Authenticatable
+{
+    use HasFactory, Notifiable;
+
+    protected $fillable = [
+        'username',
+        'email',
+        'password',
+        'is_admin',
+    ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+            'is_admin' => 'boolean',
+        ];
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+}
+app/Models/Service.php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class Service extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'image',
+        'stock',
+    ];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+}
+app/Models/Order.php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class Order extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'service_id',
+        'quantity',
+        'total_price',
+        'status',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
+}
+php artisan make:seeder ServiceSeeder
+database/seeders/ServiceSeeder.php
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\Service;
+
+class ServiceSeeder extends Seeder
+{
+    public function run(): void
+    {
+        Service::create([
+            'name' => 'Exterior Detail',
+            'description' => 'Full exterior wash, wheel cleaning and paint protection.',
+            'price' => 80.00,
+            'image' => 'exterior.jpg',
+            'stock' => 10,
+        ]);
+
+        Service::create([
+            'name' => 'Interior Detail',
+            'description' => 'Deep cleaning of seats, carpets, dashboard and interior surfaces.',
+            'price' => 70.00,
+            'image' => 'interior.jpg',
+            'stock' => 10,
+        ]);
+
+        Service::create([
+            'name' => 'Premium Full Detail',
+            'description' => 'Complete interior and exterior vehicle detailing package.',
+            'price' => 150.00,
+            'image' => 'premium.jpg',
+            'stock' => 10,
+        ]);
+
+        Service::create([
+            'name' => 'Paint Correction',
+            'description' => 'Professional paint correction to reduce swirl marks and imperfections.',
+            'price' => 200.00,
+            'image' => 'paint-correction.jpg',
+            'stock' => 5,
+        ]);
+
+        Service::create([
+            'name' => 'Ceramic Coating',
+            'description' => 'Long-lasting paint protection with an enhanced glossy finish.',
+            'price' => 350.00,
+            'image' => 'ceramic.jpg',
+            'stock' => 5,
+        ]);
+
+        Service::create([
+            'name' => 'Maintenance Detail',
+            'description' => 'Regular detailing service to keep your vehicle looking its best.',
+            'price' => 50.00,
+            'image' => 'maintenance.jpg',
+            'stock' => 20,
+        ]);
+    }
+}
