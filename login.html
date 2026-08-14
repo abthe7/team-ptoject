@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Auto Elite Detailing</title>
+
+
+    <style>
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #111111;
+            color: #ffffff;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            background-color: #080808;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            border-bottom: 1px solid #333333;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #d4af37;
+        }
+
+
+        /* =========================
+           LOGIN SECTION
+        ========================= */
+
+        .login-section {
+            min-height: calc(100vh - 75px);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 50px 20px;
+        }
+
+
+        /* =========================
+           LOGIN BOX
+        ========================= */
+
+        .login-box {
+            width: 100%;
+
+            max-width: 450px;
+
+            background-color: #1b1b1b;
+
+            padding: 40px;
+
+            border-radius: 10px;
+
+            border: 1px solid #333333;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 0, 0, 0.5);
+        }
+
+
+        .login-box h1 {
+            text-align: center;
+
+            font-size: 35px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .login-box h1 span {
+            color: #d4af37;
+        }
+
+
+        .subtitle {
+            text-align: center;
+
+            color: #999999;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-weight: bold;
+        }
+
+
+        .form-group input {
+            width: 100%;
+
+            padding: 14px;
+
+            background-color: #111111;
+
+            border: 1px solid #444444;
+
+            border-radius: 5px;
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: 0.3s;
+        }
+
+
+        .form-group input:focus {
+            border-color: #d4af37;
+        }
+
+
+        .form-group input::placeholder {
+            color: #777777;
+        }
+
+
+        /* =========================
+           SHOW PASSWORD
+        ========================= */
+
+        .password-option {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .password-option input {
+            width: auto;
+
+            accent-color: #d4af37;
+        }
+
+
+        .password-option label {
+            color: #bbbbbb;
+
+            cursor: pointer;
+
+            font-weight: normal;
+        }
+
+
+        /* =========================
+           LOGIN BUTTON
+        ========================= */
+
+        .login-button {
+            width: 100%;
+
+            padding: 14px;
+
+            background-color: #d4af37;
+
+            color: #111111;
+
+            border: none;
+
+            border-radius: 5px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .login-button:hover {
+            background-color: #ffffff;
+        }
+
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        #message {
+            margin-top: 20px;
+
+            text-align: center;
+
+            font-weight: bold;
+
+            min-height: 24px;
+        }
+
+
+        /* =========================
+           REGISTER LINK
+        ========================= */
+
+        .register-link {
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #999999;
+        }
+
+
+        .register-link a {
+            color: #d4af37;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        .register-link a:hover {
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background-color: #080808;
+
+            text-align: center;
+
+            padding: 20px;
+
+            color: #888888;
+
+            border-top: 1px solid #333333;
+        }
+
+
+        footer p {
+            margin-bottom: 5px;
+        }
+
+
+        footer a {
+            color: #d4af37;
+
+            text-decoration: none;
+        }
+
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav ul {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+            }
+
+
+            .login-box {
+                padding: 30px 20px;
+            }
+
+
+            .login-box h1 {
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+
+            AUTO <span>ELITE</span>
+
+        </div>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+
+            <li>
+                <a href="about.html">
+                    About Us
+                </a>
+            </li>
+
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+
+            <li>
+                <a
+                    href="login.html"
+                    class="active"
+                >
+                    Login
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =========================
+         LOGIN
+    ========================= -->
+
+    <section class="login-section">
+
+
+        <div class="login-box">
+
+
+            <h1>
+
+                Welcome <span>Back</span>
+
+            </h1>
+
+
+            <p class="subtitle">
+
+                Login to your Auto Elite
+                Detailing account
+
+            </p>
+
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="login-form">
+
+
+                <!-- Username / Email -->
+
+                <div class="form-group">
+
+                    <label for="identifier">
+
+                        Username or Email
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="identifier"
+                        name="identifier"
+                        placeholder="Enter your username or email"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Password -->
+
+                <div class="form-group">
+
+                    <label for="password">
+
+                        Password
+
+                    </label>
+
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Show Password -->
+
+                <div class="password-option">
+
+                    <input
+                        type="checkbox"
+                        id="show-password"
+                    >
+
+
+                    <label for="show-password">
+
+                        Show password
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- Login Button -->
+
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+
+                    Login
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- Login Message -->
+
+            <div id="message"></div>
+
+
+
+            <!-- Create Account -->
+
+            <p class="register-link">
+
+                Don't have an account?
+
+                <a href="signup.html">
+
+                    Create an account
+
+                </a>
+
+            </p>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+
+            &copy; 2026 Auto Elite Detailing.
+            All Rights Reserved.
+
+        </p>
+
+
+        <a href="index.html">
+
+            Return to Home
+
+        </a>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+
+        /* Get HTML elements */
+
+        const loginForm =
+            document.getElementById("login-form");
+
+
+        const password =
+            document.getElementById("password");
+
+
+        const showPassword =
+            document.getElementById("show-password");
+
+
+        const message =
+            document.getElementById("message");
+
+
+        const identifier =
+            document.getElementById("identifier");
+
+
+
+        /* =========================
+           SHOW / HIDE PASSWORD
+        ========================= */
+
+        showPassword.addEventListener(
+            "change",
+            function () {
+
+                if (showPassword.checked) {
+
+                    password.type = "text";
+
+                } else {
+
+                    password.type = "password";
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================
+           LOGIN
+        ========================= */
+
+        loginForm.addEventListener(
+            "submit",
+            function (event) {
+
+                /* Stop form refreshing page */
+
+                event.preventDefault();
+
+
+                /* Get values */
+
+                const usernameOrEmail =
+                    identifier.value.trim();
+
+
+                const passwordValue =
+                    password.value;
+
+
+
+                /* =========================
+                   EMPTY FIELD CHECK
+                ========================= */
+
+                if (
+                    usernameOrEmail === "" ||
+                    passwordValue === ""
+                ) {
+
+                    message.textContent =
+                        "Please complete all fields.";
+
+                    message.style.color =
+                        "#ff5555";
+
+                    return;
+
+                }
+
+
+
+                /* =========================
+                   PASSWORD LENGTH CHECK
+                ========================= */
+
+                if (passwordValue.length < 8) {
+
+                    message.textContent =
+                        "Password must be at least 8 characters.";
+
+                    message.style.color =
+                        "#ff5555";
+
+                    return;
+
+                }
+
+
+
+                /* =========================
+                   SUCCESSFUL LOGIN
+                ========================= */
+
+                message.textContent =
+                    "Login successful! Redirecting...";
+
+                message.style.color =
+                    "#d4af37";
+
+
+
+                /* =========================
+                   REDIRECT TO SERVICES
+                ========================= */
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            "services.html";
+
+                    },
+                    1000
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
